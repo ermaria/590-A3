@@ -85,7 +85,7 @@ window.onload = function () {
   }
   
 
-  class Stripe {
+  class Stripe { //creates squares that the user can't hit
     constructor() {
       this.x = Math.random()*canvas.width;
       this.y = 0;
@@ -122,7 +122,7 @@ window.onload = function () {
     delta += timestamp - lastFrameTimeMs;
     lastFrameTimeMs = timestamp;
 
-    // Process as many fixed time step updates as needed
+    
     while (delta >= timeStep) {
       processInput();
       update(timeStep);
@@ -130,7 +130,7 @@ window.onload = function () {
       
     }
   var interpolation = delta / timeStep;
-    // Render after the update
+    
     draw(interpolation);
 
     requestAnimationFrame(mainLoop);
@@ -281,8 +281,11 @@ window.onload = function () {
     for (let i = 0; i < coins.length; i++) {
       let coin = coins[i];
       if (coin.isVisible) {
+	context.save();
+	context.translate(coin.x, coin.y);
         context.beginPath();
-        context.arc(coin.x, coin.y, coin.radius, 0, 2 * Math.PI, false);
+        context.arc(0, 0, coin.radius, 0, 2 * Math.PI, false);
+	context.restore();
         context.fillStyle = coin.color;
         context.fill();
       }
