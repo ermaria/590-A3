@@ -1,0 +1,1 @@
+This is a simple game where the user controls a ball using the arrow keys and is trying to collect as many circles (coins) as possible while avoiding squares. if the user hits a square or misses 10 coins (the coins hit the bottom of the screen) the game ends.
