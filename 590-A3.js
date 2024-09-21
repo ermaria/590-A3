@@ -154,7 +154,7 @@ window.onload = function () {
     }
   }
 
-  function update(timeStep) {
+  function update(delta) {
     
     /*control.x = control.x + control.velocity_x * timeStep;
 				control.y = control.y + control.velocity_y * timeStep;
@@ -187,8 +187,8 @@ window.onload = function () {
     ball.previousY = ball.y;
 
     
-    ball.x += ball.velocity_x * (timeStep/15); 
-    ball.y += ball.velocity_y * (timeStep/15);
+    ball.x += ball.velocity_x * (delta/15); 
+    ball.y += ball.velocity_y * (delta/15);
 
     if (ball.x > canvas.width) ball.x = canvas.width;
     if (ball.x < 0) ball.x = 0;
